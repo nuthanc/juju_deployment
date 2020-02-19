@@ -164,7 +164,16 @@ aouth: (From ui under maas username)
 
 juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic
 
-If you get instance deployed but not started, try giving timeout \
-juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic --config bootstrap-timeout=1300
-
 juju deploy (give-bundle.yaml-here)
+
+### Possible failures and how to debug them:
+
+* If you encounter hook error during installation of juju
+  * Install juju again 
+* If juju is not added in path during installation
+  * Try closing the current session and open a new session
+  * If the above doesn't work, then manually add PATH in ~/.bashrc
+* If you get instance deployed but not started, try giving timeout
+  * juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic --config bootstrap-timeout=1300
+* If in case MAAS UI is inaccessible
+  * sudo apt install maas --reinstall
