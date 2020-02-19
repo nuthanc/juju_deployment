@@ -4,6 +4,11 @@
 
 ![alt text](./juju_charms_setup.png)
 
+* In this example, 3 baremetal machines are used:
+  * 1 Orchestrator
+  * 1 Controller
+  * 1 Compute
+
 ### Setup MAAS and Juju
 
 ```bash
