@@ -136,6 +136,7 @@ virsh pool-start default
 * Compose 2 VMs under Pod created in the above step, select default pool and Tag them juju and neutron VM 
 * Add machines in MAAS webUI and tag them appropriately
   * While adding give BMC IP and MAC for Power configuration
+  * Configure the control data interface(192.168.40.0/24) in controller, compute and neutron to auto-assign or static assign ip
 
 ### Bootstrap the JUJU controller
 
