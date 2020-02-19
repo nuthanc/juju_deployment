@@ -8,6 +8,9 @@
   * 1 Orchestrator
   * 1 Controller
   * 1 Compute
+* Also 2 interfaces are used:
+  * MAAS-mgmt for MAAS to communicate with the servers
+  * Control data for post-deployment traffic within the cluster
 
 ### Setup MAAS and Juju
 
