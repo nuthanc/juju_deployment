@@ -2,7 +2,7 @@
 
 ### Topology
 
-![alt text](./juju_charms_setup.png)
+![alt text](./juju_maas_topology.png)
 
 * In this example, 3 baremetal machines are used:
   * 1 Orchestrator
