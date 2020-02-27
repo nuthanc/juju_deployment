@@ -15,27 +15,29 @@
 ### Setup MAAS and Juju
 
 ```bash
-sudo apt-get install software-properties-common 
-sudo add-apt-repository --yes --no-update ppa:maas/2.6 
-sudo apt update 
-sudo apt install maas -y 
-apt install bridge-utils -y 
+server-manager reimage -F --server_id noden18 ubuntu-18.04.2
+sudo apt update
+sudo apt dist-upgrade #For updating 18.04.2 to 18.04.4
+sudo reboot
+sudo apt-get install software-properties-common
 apt install snapd -y 
+sudo snap install maas --channel=2.7
+sudo apt install bridge-utils qemu-kvm libvirt-bin -y
+
+# Do maas init after bridge and virsh configuration
+sudo maas init
+
 snap install juju --classic
 # Install juju again if you get hook error
 # Close existing terminal and open new terminal if juju is not added in PATH 
-dpkg-reconfigure maas-region-controller 
-ssh-keygen 
-maas createadmin 
-maas-region apikey --username=admin > maas.admin.key 
-maas login admin http://localhost:5240/MAAS/api/2.0 - < maas.admin.key
+
 ```
 
 ### Bridge on MAAS node
 
 * Define a bridge on the MAAS node. Add the private management port and bridge configurations. Typical contents of /etc/netplan/*.yaml are shown below; modify this accordingly.
 
-```bash
+```yaml
 network:
   version: 2
   renderer: networkd
@@ -56,7 +58,7 @@ network:
       addresses: [192.168.30.18/24]
       gateway4: 192.168.30.254
       nameservers:
-        addresses: [8.8.8.8]
+        addresses: [10.204.217.158, 8.8.8.8]
       parameters:
         stp: false
         forward-delay: 0
@@ -67,7 +69,7 @@ network:
       addresses: [192.168.40.18/24]
       gateway4: 192.168.40.254
       nameservers:
-        addresses: [8.8.8.8]
+        addresses: [10.204.217.158, 8.8.8.8]
       parameters:
         stp: false
         forward-delay: 0
@@ -76,17 +78,6 @@ network:
 ```
 netplan generate \
 netplan apply
-
-### MAAS WebUI
-
-* Upload to the MAAS webUI under the “admin” tab (top right of MAAS webUI) -> ssh keys \
-cat ~/.ssh/id_rsa.pub
-* The subnet of the bridge created on the MAAS node will reflect in the MAAS webUI under the “subnets” tab. On the newly created subnet of the bridge (192.168.30.0/24); i.e. the management network:
-  * Click on “untagged” and enable DHCP (take action drop down)
-  * Define an appropriate subnet range
-  * Give the subnet a DNS of 8.8.8.8
-  * Gateway: 192.168.30.18
-* For the 192.168.40.0/24 subnet, give 192.168.40.18 as Gateway
 
 ### Virsh configuration
 
@@ -145,6 +136,17 @@ virsh pool-start default
 * Add machines in MAAS webUI and tag them appropriately
   * While adding give BMC IP and MAC for Power configuration
   * Configure the control data interface(192.168.40.0/24) in controller, compute and neutron to auto-assign or static assign ip
+
+### MAAS WebUI
+
+* Upload to the MAAS webUI under the “admin” tab (top right of MAAS webUI) -> ssh keys \
+cat ~/.ssh/id_rsa.pub
+* The subnet of the bridge created on the MAAS node will reflect in the MAAS webUI under the “subnets” tab. On the newly created subnet of the bridge (192.168.30.0/24); i.e. the management network:
+  * Click on “untagged” and enable DHCP (take action drop down)
+  * Define an appropriate subnet range
+  * Give the subnet a DNS of 8.8.8.8
+  * Gateway: 192.168.30.18
+* For the 192.168.40.0/24 subnet, give 192.168.40.18 as Gateway
 
 ### Bootstrap the JUJU controller
 
