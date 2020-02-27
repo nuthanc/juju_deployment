@@ -139,6 +139,7 @@ virsh pool-start default
 
 ### MAAS WebUI
 
+* ssh-keygen
 * Upload to the MAAS webUI under the “admin” tab (top right of MAAS webUI) -> ssh keys \
 cat ~/.ssh/id_rsa.pub
 * The subnet of the bridge created on the MAAS node will reflect in the MAAS webUI under the “subnets” tab. On the newly created subnet of the bridge (192.168.30.0/24); i.e. the management network:
