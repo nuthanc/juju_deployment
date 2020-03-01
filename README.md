@@ -123,6 +123,7 @@ virsh pool-start default
 * Pod configuration:
   * For MAAS to query and manage machines as pods, both remotely and the local host, we will be using secure communication for libvirt over SSH.
   ```bash
+  sudo adduser maas
   sudo mkdir -p ~maas
   sudo chown maas:maas ~maas
   sudo chsh -s /bin/bash maas
