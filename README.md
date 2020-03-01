@@ -18,17 +18,19 @@
 sudo apt-get install software-properties-common 
 sudo add-apt-repository --yes --no-update ppa:maas/2.6 
 sudo apt update 
-sudo apt install maas -y 
-apt install bridge-utils -y 
-apt install snapd -y 
-snap install juju --classic
-# Install juju again if you get hook error
-# Close existing terminal and open new terminal if juju is not added in PATH 
+sudo apt install maas -y
 dpkg-reconfigure maas-region-controller 
 ssh-keygen 
 maas createadmin 
 maas-region apikey --username=admin > maas.admin.key 
 maas login admin http://localhost:5240/MAAS/api/2.0 - < maas.admin.key
+ 
+apt install bridge-utils -y 
+apt install snapd -y 
+snap install juju --classic
+# Install juju again if you get hook error
+# Close existing terminal and open new terminal if juju is not added in PATH 
+
 ```
 
 ### Bridge on MAAS node
