@@ -44,7 +44,11 @@ network:
 
   ethernets:
     eno1:
-      dhcp4: yes
+      dhcp4: no
+      addresses: [10.204.216.194/24]
+      gateway4: 10.204.216.254
+      nameservers:
+        addresses: [8.8.8.8]
     eno2:
       dhcp4: no
       dhcp6: no
