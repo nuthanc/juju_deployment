@@ -92,7 +92,7 @@ cat ~/.ssh/id_rsa.pub
   * Define an appropriate subnet range
   * Give the subnet a DNS of 8.8.8.8
   * Gateway: 192.168.30.18
-* For the 192.168.40.0/24 subnet, give 192.168.40.18 as Gateway
+* For the 192.168.40.0/24 subnet, give 192.168.40.254 as Gateway
 
 ### Virsh configuration
 
