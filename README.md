@@ -16,7 +16,7 @@
 
 ```bash
 sudo apt-get install software-properties-common 
-sudo add-apt-repository --yes --no-update ppa:maas/2.6 
+sudo add-apt-repository --yes --no-update ppa:maas/2.7 
 sudo apt update 
 sudo apt install maas -y
 dpkg-reconfigure maas-region-controller 
