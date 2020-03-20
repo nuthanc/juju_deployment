@@ -183,3 +183,5 @@ juju deploy (give-bundle.yaml-here)
   * juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic --config bootstrap-timeout=1300
 * If in case MAAS UI is inaccessible
   * sudo apt install maas --reinstall
+* Cannot edit physical interface in gui 
+  * Workaround mentioned in this link: https://bugs.launchpad.net/maas/+bug/1864241
