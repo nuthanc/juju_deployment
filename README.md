@@ -128,7 +128,7 @@ virsh pool-autostart default
 virsh pool-start default
 ```
 * Routing configurations:
-  * We will enable NATing and routing on our MAAS pod only, and all the other pods will be using MAAS as a gateway.
+  * We will enable NATing and routing on our MAAS pod only, and all the other pods will be using MAAS as a gateway. Here eno1 is the lab mgmt interface
   ```bash
   /sbin/iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE
   /sbin/iptables -A FORWARD -i eno1 -o br1 -m state --state RELATED,ESTABLISHED -j ACCEPT
