@@ -16,11 +16,13 @@ PYTHONPATH=./scripts:./fixtures TEST_CONFIG_FILE=contrail_test_input.yaml python
 ### Exports which may be required
 ```bash
 export OS_IDENTITY_API_VERSION=3
-export OS_AUTH_URL=http://192.168.30.100:5000/v3
+export OS_AUTH_URL=http://192.168.30.100:5000/v3 
 export OS_USER_DOMAIN_NAME=admin_domain
 export OS_USERNAME=admin
 export OS_PASSWORD=c0ntrail123
 export OS_PROJECT_DOMAIN_NAME=admin_domain
 export OS_PROJECT_NAME=admin
 export OS_DOMAIN_NAME=admin_domain
+
+# where 192.168.30.100 is keystone ip
 ```
