@@ -8,6 +8,8 @@ passwd root
 
 ### To run a specific test case for the first time within contrail-test directory
 ```bash
+docker run --entrypoint /bin/bash --network=host -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:master.1152
+
 PYTHONPATH=./scripts:./fixtures TEST_CONFIG_FILE=contrail_test_input.yaml python -m testtools.run scripts.vm_regression.test_vm_basic.TestBasicVMVN.test_ping_within_vn_two_vms_two_different_subnets
 ```
 
