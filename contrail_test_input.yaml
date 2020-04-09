@@ -1,4 +1,3 @@
-
 deployment:
     orchestrator: openstack
 
@@ -60,7 +59,7 @@ kolla_config:
     contrail_api_interface_address: 192.168.30.95
     keepalived_virtual_router_id: 235
     enable_swift: "no"
-    #enable_ironic: "no"
+    enable_ironic: "no"
     enable_heat: "no"
     enable_haproxy: "no"
   kolla_passwords:
@@ -70,7 +69,7 @@ kolla_config:
 orchestrator_configuration:
   contrail_api_interface_address: 192.168.30.95
   enable_haproxy: 'no'
-  #enable_ironic: 'no'
+  enable_ironic: 'no'
   enable_swift: 'no'
   external_vip: 192.168.30.100
   internal_vip: 192.168.30.100
