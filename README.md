@@ -16,7 +16,7 @@
 
 ```bash
 sudo apt-get install software-properties-common 
-sudo add-apt-repository --yes --no-update ppa:maas/2.7 
+sudo add-apt-repository --yes --no-update ppa:maas/2.6 
 sudo apt update 
 sudo apt install maas -y
 dpkg-reconfigure maas-region-controller 
@@ -183,5 +183,17 @@ juju deploy (give-bundle.yaml-here)
   * juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic --config bootstrap-timeout=1300
 * If in case MAAS UI is inaccessible
   * sudo apt install maas --reinstall
+* API server connection down with Keystone issue
+  * Add controller and compute's ip in /etc/hosts in all the nodes
+  * Restart the config api
+* Failed to query node's BMC
+  * Replace localhost with Juju jumphost ip in /etc/maas/rackd.conf
+  * Note: Juju jumphost is node on which MAAS and juju are installed
+* Hash Mismatch Issue
+```
+sudo rm -rf /var/lib/apt/lists/*
+sudo apt-get update -o Acquire::CompressionTypes::Order::=gz
+sudo apt-get update && sudo apt-get upgrade
+```
 * Cannot edit physical interface in gui 
   * Workaround mentioned in this link: https://bugs.launchpad.net/maas/+bug/1864241
