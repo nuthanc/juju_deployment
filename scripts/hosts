@@ -4,8 +4,6 @@
 # a.) make changes to the master file in /etc/cloud/templates/hosts.debian.tmpl
 # b.) change or remove the value of 'manage_etc_hosts' in
 #     /etc/cloud/cloud.cfg or cloud-config from user-data
-192.168.30.125 noden20.maas noden20/
-192.168.30.126 noden19.maas noden19/
 127.0.1.1 noden20.maas noden20
 127.0.0.1 localhost
 
