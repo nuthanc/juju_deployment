@@ -8,3 +8,5 @@ juju config contrail-controller image-tag=master.1169
 
 juju run-action contrail-agent/0 upgrade
 
+# According to Alexey only the below command is sufficient
+juju config contrail-agent image-tag=master.1169 kernel-hugepages-2m=1024
