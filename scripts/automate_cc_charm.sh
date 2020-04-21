@@ -1,1 +1,0 @@
-juju show-controller > controller.yml
