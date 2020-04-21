@@ -12,5 +12,8 @@ export n19_dns="${n19} noden19.maas noden19"
 echo 'ssh ubuntu@${n20} sudo sed -i "/$n20_local/i $n20_dns/" /etc/hosts' 
 echo 'ssh ubuntu@${n19} sudo sed -i "/$n19_dns/i $n19_dns/" /etc/hosts' 
 
+echo
+echo "${n20} noden20.maas noden20"
+echo "${n19} noden19.maas noden19"
 
 echo "Rembember this needs to be sourced"
