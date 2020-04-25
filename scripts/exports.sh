@@ -9,11 +9,8 @@ export n19_local="127.0.1.1 noden19.maas noden19"
 export n20_dns="${n20} noden20.maas noden20"
 export n19_dns="${n19} noden19.maas noden19"
 
-echo 'ssh ubuntu@${n20} sudo sed -i "/$n20_local/i $n20_dns/" /etc/hosts' 
-echo 'ssh ubuntu@${n19} sudo sed -i "/$n19_dns/i $n19_dns/" /etc/hosts' 
+echo "ssh ubuntu@${n20} \"sudo sed -i -e '/${n20_local}/i ${n20_dns}' -e '/${n20_local}/i ${n19_dns}' /etc/hosts\"" > 20remote.sh
+echo "ssh ubuntu@${n19} \"sudo sed -i -e '/${n19_local}/i ${n19_dns}' -e '/${n19_local}/i ${n20_dns}' /etc/hosts\"" > 19remote.sh
 
-echo
-echo "${n20} noden20.maas noden20"
-echo "${n19} noden19.maas noden19"
-
-echo "Rembember this needs to be sourced"
+bash 20remote.sh
+bash 19remote.sh
