@@ -48,7 +48,7 @@ network:
       addresses: [10.204.216.194/24]
       gateway4: 10.204.216.254
       nameservers:
-        addresses: [8.8.8.8]
+        addresses: [10.204.217.158, 8.8.8.8]
     eno2:
       dhcp4: no
       dhcp6: no
@@ -62,7 +62,7 @@ network:
       addresses: [192.168.30.18/24]
       gateway4: 192.168.30.254
       nameservers:
-        addresses: [8.8.8.8]
+        addresses: [10.204.217.158, 8.8.8.8]
       parameters:
         stp: false
         forward-delay: 0
@@ -73,7 +73,7 @@ network:
       addresses: [192.168.40.18/24]
       gateway4: 192.168.40.254
       nameservers:
-        addresses: [8.8.8.8]
+        addresses: [10.204.217.158, 8.8.8.8]
       parameters:
         stp: false
         forward-delay: 0
