@@ -52,7 +52,7 @@ network:
     eno2:
       dhcp4: no
       dhcp6: no
-    enp94s0f1:
+    enp94s0f0:
       dhcp4: no
       dhcp6: no
 
@@ -69,7 +69,7 @@ network:
       dhcp4: no
       dhcp6: no
     br2:
-      interfaces: [enp94s0f1]
+      interfaces: [enp94s0f0]
       addresses: [192.168.40.18/24]
       gateway4: 192.168.40.254
       nameservers:
