@@ -18,6 +18,8 @@
 sudo apt-get install software-properties-common 
 sudo add-apt-repository --yes --no-update ppa:maas/2.6 
 sudo apt update 
+export DEBIAN_FRONTEND=noninteractive
+# The above is for preventing prompt that asks to restart services
 sudo apt install maas -y
 dpkg-reconfigure maas-region-controller 
 ssh-keygen 
