@@ -168,7 +168,7 @@ Cloud Types \
 API endpoint: \
 http://10.204.216.194:5240/MAAS
 
-juju add-credential  \
+juju add-credential mymaas \
 Enter credential name: creds \
 region: default \
 aouth: (From ui under maas username) 
