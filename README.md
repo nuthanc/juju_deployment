@@ -166,7 +166,7 @@ Cloud Types \
   oracle \
   vsphere \
 API endpoint: \
-http://10.204.216.57:5240/MAAS
+http://10.204.216.194:5240/MAAS
 
 juju add-credential  \
 Enter credential name: creds \
