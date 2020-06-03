@@ -93,6 +93,10 @@ cat ~/.ssh/id_rsa.pub
   * Give the subnet a DNS of 8.8.8.8
   * Gateway: 192.168.30.18
 * For the 192.168.40.0/24 subnet, give 192.168.40.254 as Gateway
+* For netronome deployment, give compute tag the following options
+```sh
+maas admin tags create name='compute' comment='kernel options' kernel_opts='intel_iommu=on iommu=pt default_hugepagesz=2M hugepagesz=2M hugepages=8192'
+```
 
 ### Virsh configuration
 
