@@ -165,7 +165,7 @@ Cloud Types \
   openstack \
   oracle \
   vsphere \
-API endpoint: 
+API endpoint: \
 http://10.204.216.57:5240/MAAS
 
 juju add-credential  \
