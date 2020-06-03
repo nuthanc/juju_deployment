@@ -158,23 +158,23 @@ virsh pool-start default
 
 ### Bootstrap the JUJU controller
 
-juju add-cloud (name) --local\
+juju add-cloud MYMAAS --local\
 Cloud Types \
   *maas \
   manual \
   openstack \
   oracle \
   vsphere \
-API endpoint: http://(maas-ip-here):5240/MAAS 
+API endpoint: http://10.204.216.57:5240/MAAS
 
 juju add-credential  \
-Enter credential name: (name) \
+Enter credential name: creds \
 region: default \
 aouth: (From ui under maas username) 
 
 juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic
 
-juju deploy (give-bundle.yaml-here)
+juju deploy ./bundle_multi.yml
 
 ### Possible failures and how to debug them:
 
