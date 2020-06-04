@@ -160,7 +160,7 @@ virsh pool-start default
 
 ### Bootstrap the JUJU controller
 
-juju add-cloud MYMAAS --local\
+juju add-cloud mymaas --local\
 Cloud Types \
   *maas \
   manual \
