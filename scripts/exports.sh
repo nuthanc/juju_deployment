@@ -15,4 +15,4 @@ echo "ssh ubuntu@${n19} \"sudo sed -i -e '/${n19_local}/i ${n19_dns}' -e '/${n19
 bash 20remote.sh
 bash 19remote.sh
 
-# Create alias for this like alias e="source exports.sh"
+# Create alias for this like alias e="source /root/juju_deployment/scripts/exports.sh"
