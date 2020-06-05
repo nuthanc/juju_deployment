@@ -257,10 +257,16 @@ services:
     num_units: 1
     to: [ "lxd:1" ]
 
+  heat:
+    charm: cs:bionic/heat
+    expose: true
+    num_units: 1
+    to: [ "lxd:1" ]
+
 relations:
   # openstack
   - [ "ubuntu", "ntp" ]
-    #- [ "heat", "ntp" ]
+  - [ "heat", "ntp" ]
   - [ "neutron-api", "ntp" ]
     #- [ mysql, mysql-hacluster ]
   - [ "keystone", "mysql" ]
@@ -285,9 +291,9 @@ relations:
   - [ "nova-compute", "ntp" ]
   - [ "openstack-dashboard:identity-service", "keystone" ]
     #- [ openstack-dashboard, dashboard-hacluster ]
-    #- [ "heat", "mysql" ]
-    #- [ "heat", "rabbitmq-server" ]
-    #- [ "heat", "keystone" ]
+    - [ "heat", "mysql" ]
+    - [ "heat", "rabbitmq-server" ]
+    - [ "heat", "keystone" ]
     #- [ "heat", "heat-hacluster" ]
 
   #contrail
@@ -298,7 +304,7 @@ relations:
   - [ "contrail-controller", "contrail-analyticsdb" ]
   - [ "contrail-openstack", "nova-compute" ]
   - [ "contrail-openstack", "neutron-api" ]
-  #- [ "contrail-openstack", "heat" ]
+  - [ "contrail-openstack", "heat" ]
   - [ "contrail-openstack", "contrail-controller" ]
   - [ "contrail-agent:juju-info", "nova-compute:juju-info" ]
   - [ "contrail-agent", "contrail-controller"]
