@@ -250,6 +250,12 @@ services:
     agilio-image-tag: *agilio-image-tag
     agilio-user: *agilio-user
     agilio-password: *agilio-password
+  
+  easyrsa:
+    #charm: cs:bionic/easyrsa
+    charm: cs:~containers/easyrsa-278
+    num_units: 1
+    to: [ "lxd:1" ]
 
 relations:
   # openstack
@@ -314,4 +320,18 @@ relations:
   - [ "nova-compute-accel", "ntp" ]
   - [ "contrail-openstack", "nova-compute-accel" ]
   - [ "agilio-vrouter5:juju-info", "nova-compute-accel:juju-info"  ]
+
+  - [ "easyrsa:client", "contrail-controller" ]
+  - [ "easyrsa:client", "contrail-analytics" ]
+  - [ "easyrsa:client", "contrail-analyticsdb" ]
+  - [ "easyrsa:client", "contrail-agent" ]
+
+  - - easyrsa:client
+    - contrail-controller:tls-certificates
+  - - easyrsa:client
+    - contrail-analytics:tls-certificates
+  - - easyrsa:client
+    - contrail-analyticsdb:tls-certificates
+  - - easyrsa:client
+    - contrail-agent:tls-certificates
 
