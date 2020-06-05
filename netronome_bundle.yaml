@@ -2,7 +2,8 @@ series: bionic
 variables:
   openstack-origin:             &openstack-origin               distro
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
-  control-network:              &control-network                "192.168.40.0/24"
+  data-network:                 &data-network                   "enp94s0f0"
+  # control-network:              &control-network                "192.168.40.0/24"
   virtioforwarder-coremask:     &virtioforwarder-coremask       "1,2"
   agilio-registry:              &agilio-registry                "netronomesystems"
   agilio-image-tag:             &agilio-image-tag               "2.39-ubuntu-queens"
@@ -220,7 +221,7 @@ services:
       image-tag: *image-tag
       docker-registry-insecure: *docker-registry-insecure
       #control-network: *control-network
-      data-network: enp94s0f0
+      data-network: *data-network
       auth-mode: no-auth
     to: [ "1" ]
   contrail-keystone-auth:
@@ -231,14 +232,6 @@ services:
     #  '': new
     num_units: 1
     to: [ "lxd:1" ]
-
-    #agilio-vrouter5:  
-    #charm: ./charm-agilio-vrt-1910
-    #expose: true
-    #options:
-    #  virtioforwarder-coremask: *virtioforwarder-coremask
-    #  registry: *agilio-registry
-    #  registry-insecure: *agilio-insecure
 
   agilio-vrouter5:
     charm: ./charm-agilio-vrt-5-37
