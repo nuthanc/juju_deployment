@@ -284,9 +284,9 @@ relations:
   - [ "nova-compute", "ntp" ]
   - [ "openstack-dashboard:identity-service", "keystone" ]
     #- [ openstack-dashboard, dashboard-hacluster ]
-    - [ "heat", "mysql" ]
-    - [ "heat", "rabbitmq-server" ]
-    - [ "heat", "keystone" ]
+  - [ "heat", "mysql" ]
+  - [ "heat", "rabbitmq-server" ]
+  - [ "heat", "keystone" ]
     #- [ "heat", "heat-hacluster" ]
 
   #contrail
