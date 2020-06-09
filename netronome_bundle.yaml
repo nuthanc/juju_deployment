@@ -5,8 +5,9 @@ variables:
   data-network:                 &data-network                   "enp94s0f0"
   # control-network:              &control-network                "192.168.40.0/24"
   virtioforwarder-coremask:     &virtioforwarder-coremask       "1,2"
+  dockerhub-registry:           &dockerhub-registry             "index.docker.io"
   agilio-registry:              &agilio-registry                "netronomesystems"
-  agilio-image-tag:             &agilio-image-tag               "2.43-ubuntu-queens"
+  agilio-image-tag:             &agilio-image-tag               "latest-ubuntu-queens"
   agilio-user:                  &agilio-user                    "customer115"
   agilio-password:              &agilio-password                "customer#115"
   agilio-insecure:              &agilio-insecure                false
@@ -207,6 +208,7 @@ services:
     agilio-registry: *agilio-registry
     agilio-insecure: *agilio-insecure
     agilio-image-tag: *agilio-image-tag
+    dockerhub-registry: *dockerhub-registry
     agilio-user: *agilio-user
     agilio-password: *agilio-password
   
@@ -278,13 +280,4 @@ relations:
   - [ "easyrsa:client", "contrail-analytics" ]
   - [ "easyrsa:client", "contrail-analyticsdb" ]
   - [ "easyrsa:client", "contrail-agent" ]
-
-  - - easyrsa:client
-    - contrail-controller:tls-certificates
-  - - easyrsa:client
-    - contrail-analytics:tls-certificates
-  - - easyrsa:client
-    - contrail-analyticsdb:tls-certificates
-  - - easyrsa:client
-    - contrail-agent:tls-certificates
 
