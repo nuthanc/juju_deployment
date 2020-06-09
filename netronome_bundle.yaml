@@ -6,13 +6,13 @@ variables:
   # control-network:              &control-network                "192.168.40.0/24"
   virtioforwarder-coremask:     &virtioforwarder-coremask       "1,2"
   agilio-registry:              &agilio-registry                "netronomesystems"
-  agilio-image-tag:             &agilio-image-tag               "2.39-ubuntu-queens"
+  agilio-image-tag:             &agilio-image-tag               "2.43-ubuntu-queens"
   agilio-user:                  &agilio-user                    "customer115"
   agilio-password:              &agilio-password                "customer#115"
   agilio-insecure:              &agilio-insecure                false
   agilio-phy:                   &agilio-phy                     "enp175s0np0s0"
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2005.62"
+  image-tag:                    &image-tag                      "master.1240"
   docker-registry-insecure:     &docker-registry-insecure       "true"
 machines:
   "1":
@@ -107,20 +107,6 @@ services:
     options:
       openstack-origin: *openstack-origin
     to: [ "lxd:1" ]
-  nova-compute:
-    charm: cs:nova-compute
-    num_units: 1
-    expose: true
-    options:
-      openstack-origin: *openstack-origin
-    # to: [ "2" ]
-  nova-compute-dpdk:
-    charm: cs:nova-compute
-    num_units: 0
-    expose: true
-    options:
-      openstack-origin: *openstack-origin
-    #to: [ "5" ]
   nova-compute-accel:
     charm: cs:nova-compute
     num_units: 1
@@ -155,26 +141,6 @@ services:
       docker-registry-insecure: *docker-registry-insecure
       vhost-gateway: *vhost-gateway
       physical-interface: "enp175s0np0s0"
-  contrail-agent-dpdk:
-    charm: ./tf-charms/contrail-agent
-    num_units: 0
-    series: bionic
-    expose: true
-    options:
-      log-level: "SYS_DEBUG"
-      docker-registry: *docker-registry
-      #docker-user: *#docker-user
-      #docker-password: *#docker-password
-      image-tag: *image-tag
-      docker-registry-insecure: *docker-registry-insecure
-      dpdk: true
-      dpdk-main-mempool-size: "65536"
-      dpdk-pmd-txd-size: "2048"
-      dpdk-pmd-rxd-size: "2048"
-      dpdk-driver: ""
-      dpdk-coremask: "1-4"
-      vhost-gateway: *vhost-gateway
-      physical-interface: "enp175s0np0s0" 
   contrail-analytics:
     charm: ./tf-charms/contrail-analytics
     num_units: 1
@@ -277,11 +243,7 @@ relations:
   - [ "neutron-api", "nova-cloud-controller" ]
   - [ "neutron-api", "keystone" ]
     #- [ neutron-api, neutron-hacluster ]
-  # - [ "nova-compute:shared-db", "mysql:shared-db" ]
-  - [ "nova-compute:amqp", "rabbitmq-server:amqp" ]
-  - [ "nova-compute", "glance" ]
-  - [ "nova-compute", "nova-cloud-controller" ]
-  - [ "nova-compute", "ntp" ]
+
   - [ "openstack-dashboard:identity-service", "keystone" ]
     #- [ openstack-dashboard, dashboard-hacluster ]
   - [ "heat", "mysql" ]
@@ -295,21 +257,13 @@ relations:
   - [ "contrail-analytics", "contrail-analyticsdb" ]
   - [ "contrail-controller", "contrail-analytics" ]
   - [ "contrail-controller", "contrail-analyticsdb" ]
-  - [ "contrail-openstack", "nova-compute" ]
+  # - [ "contrail-openstack", "nova-compute" ]
   - [ "contrail-openstack", "neutron-api" ]
   - [ "contrail-openstack", "heat" ]
   - [ "contrail-openstack", "contrail-controller" ]
-  - [ "contrail-agent:juju-info", "nova-compute:juju-info" ]
+  # - [ "contrail-agent:juju-info", "nova-compute:juju-info" ]
   - [ "contrail-agent", "contrail-controller"]
 
-  # DPDK
-  - [ "contrail-agent-dpdk:juju-info", "nova-compute-dpdk:juju-info" ]
-  - [ "contrail-agent-dpdk", "contrail-controller"]
-  - [ "nova-compute-dpdk:amqp", "rabbitmq-server:amqp" ]
-  - [ "nova-compute-dpdk", "glance" ]
-  - [ "nova-compute-dpdk", "nova-cloud-controller" ]
-  - [ "nova-compute-dpdk", "ntp" ]
-  - [ "contrail-openstack", "nova-compute-dpdk" ]
 
   # AGILIO-ACCEL
   - [ "contrail-agent:juju-info", "nova-compute-accel:juju-info" ]
