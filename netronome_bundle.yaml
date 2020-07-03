@@ -5,15 +5,15 @@ variables:
   data-network:                 &data-network                   "enp94s0f0"
   # control-network:              &control-network                "192.168.40.0/24"
   virtioforwarder-coremask:     &virtioforwarder-coremask       "1,2"
-  dockerhub-registry:           &dockerhub-registry             "index.docker.io"
+  dockerhub-registry:           &dockerhub-registry             "https://index.docker.io/v1/"
   agilio-registry:              &agilio-registry                "netronomesystems"
-  agilio-image-tag:             &agilio-image-tag               "latest-ubuntu-queens"
+  agilio-image-tag:             &agilio-image-tag               "2.44-ubuntu-queens"
   agilio-user:                  &agilio-user                    "customer115"
   agilio-password:              &agilio-password                "customer#115"
   agilio-insecure:              &agilio-insecure                false
   agilio-phy:                   &agilio-phy                     "enp175s0np0s0"
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "master.1240"
+  image-tag:                    &image-tag                      "master.1269"
   docker-registry-insecure:     &docker-registry-insecure       "true"
 machines:
   "1":
@@ -214,7 +214,7 @@ services:
   
   easyrsa:
     #charm: cs:bionic/easyrsa
-    charm: cs:~containers/easyrsa-278
+    charm: cs:~containers/easyrsa-318
     num_units: 1
     to: [ "lxd:1" ]
 
