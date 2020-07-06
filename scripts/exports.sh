@@ -23,3 +23,7 @@ bash 20remote.sh
 bash 19remote.sh
 
 # Create alias for this like alias e="source /root/juju_deployment/scripts/exports.sh"  
+
+# Add below in ~/.ssh/config to avoid Host key checking
+# Host *
+#     StrictHostKeyChecking no
