@@ -7,7 +7,7 @@ variables:
   virtioforwarder-coremask:     &virtioforwarder-coremask       "1,2"
   dockerhub-registry:           &dockerhub-registry             "https://index.docker.io/v1/"
   agilio-registry:              &agilio-registry                "netronomesystems"
-  agilio-image-tag:             &agilio-image-tag               "2.44-ubuntu-queens"
+  agilio-image-tag:             &agilio-image-tag               "2.45-ubuntu-queens"
   agilio-user:                  &agilio-user                    "customer115"
   agilio-password:              &agilio-password                "customer#115"
   agilio-insecure:              &agilio-insecure                false
@@ -204,13 +204,13 @@ services:
     charm: ./charm-agilio-vrt-5-37
     expose: true
     options:
-    virtioforwarder-coremask: *virtioforwarder-coremask
-    agilio-registry: *agilio-registry
-    agilio-insecure: *agilio-insecure
-    agilio-image-tag: *agilio-image-tag
-    dockerhub-registry: *dockerhub-registry
-    agilio-user: *agilio-user
-    agilio-password: *agilio-password
+      virtioforwarder-coremask: *virtioforwarder-coremask
+      agilio-registry: *agilio-registry
+      agilio-insecure: *agilio-insecure
+      agilio-image-tag: *agilio-image-tag
+      dockerhub-registry: *dockerhub-registry
+      agilio-user: *agilio-user
+      agilio-password: *agilio-password
   
   easyrsa:
     #charm: cs:bionic/easyrsa
