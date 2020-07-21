@@ -27,3 +27,8 @@ bash 19remote.sh
 # Add below in ~/.ssh/config to avoid Host key checking
 # Host *
 #     StrictHostKeyChecking no
+192.168.30.20 noden20.maas noden20
+192.168.30.19 noden19.maas noden19
+192.168.30.9 nodec9.maas nodec9
+192.168.30.60 nodeg20.maas nodeg20
+192.168.30.61 nodec61.maas nodec61
