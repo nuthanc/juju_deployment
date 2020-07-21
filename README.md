@@ -152,7 +152,7 @@ virsh pool-start default
   sudo -u maas virsh -c qemu+ssh://root@192.168.30.18/system list --all
   ```
 * Go back to the MAAS UI to add the local machine as a pod:
-  * Select the “Pod” tab, and click “Add Pod” on the top right corner. Provide the requested info: - Name: MAAS Pod - Pod type: Virsh (virtual systems) - Virsh address: qemu+ssh://ubuntu@192.168.30.18/system
+  * Select the “Pod” tab, and click “Add Pod” on the top right corner. Provide the requested info: - Name: MAAS Pod - Pod type: Virsh (virtual systems) - Virsh address: qemu+ssh://root@192.168.30.18/system
 * Compose 2 VMs under Pod created in the above step, select default pool and Tag them juju and neutron VM 
 * Add machines in MAAS webUI and tag them appropriately
   * While adding give BMC IP and MAC for Power configuration
