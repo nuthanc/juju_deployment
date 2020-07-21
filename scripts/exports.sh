@@ -32,3 +32,4 @@ bash 19remote.sh
 192.168.30.9 nodec9.maas nodec9
 192.168.30.60 nodeg20.maas nodeg20
 192.168.30.61 nodec61.maas nodec61
+
