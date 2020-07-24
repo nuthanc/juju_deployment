@@ -94,7 +94,7 @@ cat ~/.ssh/id_rsa.pub
   * Define an appropriate subnet range
   * Give the subnet a DNS of 8.8.8.8
   * Gateway: 192.168.30.18
-* For the 192.168.40.0/24 subnet, give 192.168.40.18 as Gateway
+* For the 192.168.40.0/24 subnet, give 192.168.40.254 as Gateway
 * For netronome deployment, give compute tag the following options
 ```sh
 maas admin tags create name='compute' comment='kernel options' kernel_opts='intel_iommu=on iommu=pt default_hugepagesz=2M hugepagesz=2M hugepages=8192'
@@ -152,7 +152,7 @@ virsh pool-start default
   sudo -u maas virsh -c qemu+ssh://root@192.168.30.18/system list --all
   ```
 * Go back to the MAAS UI to add the local machine as a pod:
-  * Select the “Pod” tab, and click “Add Pod” on the top right corner. Provide the requested info: - Name: MAAS Pod - Pod type: Virsh (virtual systems) - Virsh address: qemu+ssh://ubuntu@192.168.30.18/system
+  * Select the “Pod” tab, and click “Add Pod” on the top right corner. Provide the requested info: - Name: MAAS Pod - Pod type: Virsh (virtual systems) - Virsh address: qemu+ssh://root@192.168.30.18/system
 * Compose 2 VMs under Pod created in the above step, select default pool and Tag them juju and neutron VM 
 * Add machines in MAAS webUI and tag them appropriately
   * While adding give BMC IP and MAC for Power configuration
