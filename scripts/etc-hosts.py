@@ -4,12 +4,9 @@ import os
 
 #MSG: I think only on the controller is sufficient
 
-# nodes = ("noden19", "noden20", "nodei34", "nodec9", "nodec61")
-nodes = ("noden19", "noden20", "nodec9", "nodec61")
-# mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.34", "192.168.30.9", "192.168.30.61")
-mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.61")
-# ctrl_ips = ("192.168.40.19", "192.168.40.20", "192.168.40.34", "192.168.40.9", "")
-ctrl_ips = ("192.168.40.19", "192.168.40.20", "192.168.40.9", "")
+nodes = ("noden19", "noden20", "nodec9", "noden29")
+mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34")
+ctrl_ips = ("192.168.40.19", "192.168.40.20", "192.168.40.9", "192.168.40.29", "192.168.40.34")
 localhosts = []
 hosts = []
 mgmt_dns = []
@@ -35,7 +32,7 @@ def host_mapping():
   # print(mgmt_dns)
   # print(ctrl_dns)
 
-def gen_command():
+def mach_specific_sed_cmd():
   for i in range(len(nodes)):
     command = f"sudo sed -i"
     for j in range(len(nodes)):
@@ -44,23 +41,29 @@ def gen_command():
         command += f" -e '/{localhosts[i]}/i {ctrl_dns[j]}'"
     command += " /etc/hosts"
     commands.append(command)
-#   for c in commands:
-#     print(c)
-#     print()
+  # for c in commands:
+  #   print(c)
+  #   print()
 
+def execute_cmd_on_remote(i):
+  ssh = subprocess.Popen(["ssh", "%s" % hosts[i], commands[i]],
+                          shell=False,
+                          stdout=subprocess.PIPE,
+                          stderr=subprocess.PIPE)
+  result = ssh.stdout.readlines()
+  err = ssh.stderr.readlines()
+  # print(result)
+  print(err)
 
-def ssh_sed():
-  for i in range(len(nodes)):
-    ssh = subprocess.Popen(["ssh", "%s" % hosts[i], commands[i]],
-                            shell=False,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE)
-    result = ssh.stdout.readlines()
-    err = ssh.stderr.readlines()
-    # print(result)
-    print(err)
+def ssh_sed(machine='all'):
+  if machine == 'all':
+    for i in range(len(nodes)):
+      execute_cmd_on_remote(i)
+  else:
+    execute_cmd_on_remote(machine)
 
 
 host_mapping()
-gen_command()
-ssh_sed()
+mach_specific_sed_cmd()
+# By default on all machines if no parameter is specified
+ssh_sed(machine=1) 
