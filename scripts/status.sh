@@ -1,9 +1,11 @@
-#n20_status=$(juju status|grep noden20)
-#n19_status=$(juju status|grep noden20)
+n20_status=$(juju status|grep noden20)
+n29_status=$(juju status|grep noden29)
+i34_status=$(juju status|grep nodei34)
 
-while [[ ${n20_status} != *"Deployed"* ]] && [[ ${n19_status} != *"Deployed"* ]]; do
+while [[ ${n20_status} != *"Deployed"* ]] || [[ ${n29_status} != *"Deployed"* ]] || [[ ${i34_status} != *"Deployed"* ]]; do
 	echo "Deploying"
 	n20_status=$(juju status|grep noden20)
-	n19_status=$(juju status|grep noden19)
+	n29_status=$(juju status|grep noden29)
+	i34_status=$(juju status|grep nodei34)
 	sleep 5
 done
