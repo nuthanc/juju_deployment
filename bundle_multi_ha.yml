@@ -97,7 +97,7 @@ services:
       openstack-origin: *openstack-origin
     to: [ "lxd:0" ]
   nova-compute:
-    charm: cs:nova-compute
+    charm: cs:nova-compute-317
     num_units: 1
     expose: true
     options:
