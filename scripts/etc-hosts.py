@@ -66,4 +66,6 @@ def ssh_sed(machine='all'):
 host_mapping()
 mach_specific_sed_cmd()
 # By default on all machines if no parameter is specified
+ssh_sed(machine=1) 
+ssh_sed(machine=3) 
 ssh_sed(machine=4) 
