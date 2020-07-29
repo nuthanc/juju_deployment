@@ -233,14 +233,6 @@ relations:
   - [ "contrail-agent", "contrail-controller"]
 
 
-  - [ "contrail-agent-dpdk:juju-info", "nova-compute-dpdk:juju-info" ]
-  - [ "contrail-agent-dpdk", "contrail-controller"]
-  - [ "nova-compute-dpdk:amqp", "rabbitmq-server:amqp" ]
-  - [ "nova-compute-dpdk", "glance" ]
-  - [ "nova-compute-dpdk", "nova-cloud-controller" ]
-  - [ "nova-compute-dpdk", "ntp" ]
-  - [ "contrail-openstack", "nova-compute-dpdk" ]
-
   - - easyrsa:client
     - contrail-controller:tls-certificates
   - - easyrsa:client
