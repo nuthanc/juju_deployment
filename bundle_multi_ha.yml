@@ -1,0 +1,260 @@
+series: bionic
+variables:
+  openstack-origin:             &openstack-origin               distro
+  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
+  data-network:                 &data-network                   "192.168.40.0/24"
+  control-network:              &control-network                "192.168.30.0/24"
+  docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
+  image-tag:                    &image-tag                      "2008.28"
+  docker-registry-insecure:     &docker-registry-insecure       true
+machines:
+  '0':
+    constraints: tags=controller-0
+    series: bionic
+  '1':
+    constraints: tags=controller-1
+    series: bionic
+  '2':
+    constraints: tags=controller-2
+    series: bionic
+  '3':
+    constraints: tags=compute-o7k
+    series: bionic
+  '4':
+    constraints: tags=neutron
+    series: bionic
+
+services:
+  ubuntu:
+    charm: cs:ubuntu
+    num_units: 5
+    to: 
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+  ntp:
+    charm: cs:ntp
+    num_units: 0
+    options:
+       source: 10.204.217.158
+  mysql:
+    charm: cs:percona-cluster
+    num_units: 1
+    options:
+      dataset-size: 15%
+      max-connections: 10000
+      root-password: c0ntrail123
+      sst-password: c0ntrail123
+      min-cluster-size: 1
+    to: [ "lxd:0" ]
+  rabbitmq-server:
+    charm: cs:rabbitmq-server
+    num_units: 1
+    options:
+      min-cluster-size: 1
+    to: [ "lxd:0" ]
+  keystone:
+    charm: cs:keystone
+    expose: true
+    num_units: 1
+    options:
+      admin-password: c0ntrail123
+      admin-role: admin
+      openstack-origin: *openstack-origin
+      preferred-api-version: 3
+    to: [ "lxd:0" ]
+  nova-cloud-controller:
+    charm: cs:nova-cloud-controller
+    num_units: 1
+    expose: true
+    options:
+      network-manager: Neutron
+      openstack-origin: *openstack-origin
+    to: [ "lxd:0" ]
+  neutron-api:
+    charm: cs:neutron-api
+    expose: true
+    num_units: 1
+    series: bionic
+    options:
+      manage-neutron-plugin-legacy-mode: false
+      openstack-origin: *openstack-origin
+    to: [ "4" ]
+  glance:
+    charm: cs:glance
+    expose: true
+    num_units: 1
+    options:
+      openstack-origin: *openstack-origin
+    to: [ "lxd:0" ]
+  openstack-dashboard:
+    charm: cs:openstack-dashboard
+    expose: true
+    num_units: 1
+    options:
+      openstack-origin: *openstack-origin
+    to: [ "lxd:0" ]
+  nova-compute:
+    charm: cs:nova-compute
+    num_units: 1
+    expose: true
+    options:
+      openstack-origin: *openstack-origin
+    to: [ "3" ]
+  contrail-openstack:
+    charm: ./contrail-charms/contrail-openstack
+    series: bionic
+    expose: true
+    num_units: 0
+    options:
+      docker-registry: *docker-registry
+      image-tag: *image-tag
+      docker-registry-insecure: *docker-registry-insecure
+  contrail-agent:
+    charm: ./contrail-charms/contrail-agent
+    num_units: 0
+    series: bionic
+    expose: true
+    options:
+      log-level: "SYS_DEBUG"
+      docker-registry: *docker-registry
+      image-tag: *image-tag
+      docker-registry-insecure: *docker-registry-insecure
+      vhost-gateway: *vhost-gateway
+      physical-interface: "enp175s0np0s0" 
+  contrail-analytics:
+    charm: ./contrail-charms/contrail-analytics
+    num_units: 3
+    series: bionic
+    expose: true
+    options:
+      log-level: "SYS_DEBUG"
+      docker-registry: *docker-registry
+      image-tag: *image-tag
+      docker-registry-insecure: *docker-registry-insecure
+      control-network: *control-network
+    to: 
+      - '0'
+      - '1'
+      - '2'
+  contrail-analyticsdb:
+    charm: ./contrail-charms/contrail-analyticsdb
+    num_units: 3
+    series: bionic
+    expose: true
+    options:
+      log-level: "SYS_DEBUG"
+      cassandra-minimum-diskgb: "4"
+      cassandra-jvm-extra-opts: "-Xms8g -Xmx8g"
+      docker-registry: *docker-registry
+
+
+      image-tag: *image-tag
+      docker-registry-insecure: *docker-registry-insecure
+      control-network: *control-network
+    to: 
+      - '0'
+      - '1'
+      - '2'
+  contrail-controller:
+    charm: ./contrail-charms/contrail-controller
+    series: bionic
+    expose: true
+    num_units: 3
+    options:
+      log-level: "SYS_DEBUG"
+      cassandra-minimum-diskgb: "4"
+      cassandra-jvm-extra-opts: "-Xms8g -Xmx8g"
+      docker-registry: *docker-registry
+
+
+      image-tag: *image-tag
+      docker-registry-insecure: *docker-registry-insecure
+      control-network: *control-network
+      data-network: *data-network
+      auth-mode: no-auth
+    to: 
+      - '0'
+      - '1'
+      - '2'
+  contrail-keystone-auth:
+    charm: ./contrail-charms/contrail-keystone-auth
+    series: bionic
+    expose: true
+    num_units: 1
+    to: [ "lxd:0" ]
+  easyrsa:
+    charm: cs:~containers/easyrsa-303
+    num_units: 1
+    to:
+      - '0'
+
+relations:
+
+  - [ "ubuntu", "ntp" ]
+
+  - [ "neutron-api", "ntp" ]
+
+  - [ "keystone", "mysql" ]
+
+  - [ "glance", "mysql" ]
+  - [ "glance", "keystone" ]
+
+  - [ "nova-cloud-controller:shared-db", "mysql:shared-db" ]
+  - [ "nova-cloud-controller:amqp", "rabbitmq-server:amqp" ]
+  - [ "nova-cloud-controller", "keystone" ]
+  - [ "nova-cloud-controller", "glance" ]
+
+  - [ "neutron-api", "mysql" ]
+  - [ "neutron-api", "rabbitmq-server" ]
+  - [ "neutron-api", "nova-cloud-controller" ]
+  - [ "neutron-api", "keystone" ]
+
+
+  - [ "nova-compute:amqp", "rabbitmq-server:amqp" ]
+  - [ "nova-compute", "glance" ]
+  - [ "nova-compute", "nova-cloud-controller" ]
+  - [ "nova-compute", "ntp" ]
+  - [ "openstack-dashboard:identity-service", "keystone" ]
+
+
+  - [ "contrail-keystone-auth", "keystone" ]
+  - [ "contrail-controller", "contrail-keystone-auth" ]
+  - [ "contrail-analytics", "contrail-analyticsdb" ]
+  - [ "contrail-controller", "contrail-analytics" ]
+  - [ "contrail-controller", "contrail-analyticsdb" ]
+  - [ "contrail-openstack", "nova-compute" ]
+  - [ "contrail-openstack", "neutron-api" ]
+
+  - [ "contrail-openstack", "contrail-controller" ]
+  - [ "contrail-agent:juju-info", "nova-compute:juju-info" ]
+  - [ "contrail-agent", "contrail-controller"]
+
+
+  - [ "contrail-agent-dpdk:juju-info", "nova-compute-dpdk:juju-info" ]
+  - [ "contrail-agent-dpdk", "contrail-controller"]
+  - [ "nova-compute-dpdk:amqp", "rabbitmq-server:amqp" ]
+  - [ "nova-compute-dpdk", "glance" ]
+  - [ "nova-compute-dpdk", "nova-cloud-controller" ]
+  - [ "nova-compute-dpdk", "ntp" ]
+  - [ "contrail-openstack", "nova-compute-dpdk" ]
+
+  - - easyrsa:client
+    - contrail-controller:tls-certificates
+  - - easyrsa:client
+    - contrail-analytics:tls-certificates
+  - - easyrsa:client
+    - contrail-analyticsdb:tls-certificates
+  - - easyrsa:client
+    - contrail-agent:tls-certificates
+
+
+
+
+
+
+
+
+

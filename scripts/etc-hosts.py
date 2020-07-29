@@ -4,7 +4,7 @@ import os
 
 #MSG: I think only on the controller is sufficient
 
-nodes = ("noden19", "noden20", "nodec9", "noden29")
+nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34")
 mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34")
 ctrl_ips = ("192.168.40.19", "192.168.40.20", "192.168.40.9", "192.168.40.29", "192.168.40.34")
 localhosts = []
@@ -66,4 +66,4 @@ def ssh_sed(machine='all'):
 host_mapping()
 mach_specific_sed_cmd()
 # By default on all machines if no parameter is specified
-ssh_sed(machine=1) 
+ssh_sed(machine=4) 
