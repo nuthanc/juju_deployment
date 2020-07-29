@@ -195,7 +195,7 @@ relations:
 
   - [ "ubuntu", "ntp" ]
 
-  - [ "neutron-api", "ntp" ]
+  # - [ "neutron-api", "ntp" ]
 
   - [ "keystone", "mysql" ]
 
@@ -216,7 +216,7 @@ relations:
   - [ "nova-compute:amqp", "rabbitmq-server:amqp" ]
   - [ "nova-compute", "glance" ]
   - [ "nova-compute", "nova-cloud-controller" ]
-  - [ "nova-compute", "ntp" ]
+  # - [ "nova-compute", "ntp" ]
   - [ "openstack-dashboard:identity-service", "keystone" ]
 
 
