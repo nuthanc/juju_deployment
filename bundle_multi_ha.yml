@@ -104,7 +104,7 @@ services:
       openstack-origin: *openstack-origin
     to: [ "3" ]
   contrail-openstack:
-    charm: ./contrail-charms/contrail-openstack
+    charm: /root/tf-charms/contrail-openstack
     series: bionic
     expose: true
     num_units: 0
@@ -113,7 +113,7 @@ services:
       image-tag: *image-tag
       docker-registry-insecure: *docker-registry-insecure
   contrail-agent:
-    charm: ./contrail-charms/contrail-agent
+    charm: /root/tf-charms/contrail-agent
     num_units: 0
     series: bionic
     expose: true
@@ -125,7 +125,7 @@ services:
       vhost-gateway: *vhost-gateway
       physical-interface: "enp175s0np0s0" 
   contrail-analytics:
-    charm: ./contrail-charms/contrail-analytics
+    charm: /root/tf-charms/contrail-analytics
     num_units: 3
     series: bionic
     expose: true
@@ -140,7 +140,7 @@ services:
       - '1'
       - '2'
   contrail-analyticsdb:
-    charm: ./contrail-charms/contrail-analyticsdb
+    charm: /root/tf-charms/contrail-analyticsdb
     num_units: 3
     series: bionic
     expose: true
@@ -159,7 +159,7 @@ services:
       - '1'
       - '2'
   contrail-controller:
-    charm: ./contrail-charms/contrail-controller
+    charm: /root/tf-charms/contrail-controller
     series: bionic
     expose: true
     num_units: 3
@@ -180,7 +180,7 @@ services:
       - '1'
       - '2'
   contrail-keystone-auth:
-    charm: ./contrail-charms/contrail-keystone-auth
+    charm: /root/tf-charms/contrail-keystone-auth
     series: bionic
     expose: true
     num_units: 1
