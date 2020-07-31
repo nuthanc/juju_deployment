@@ -1,3 +1,8 @@
+''' Pre-sanity steps:
+1. Allow Root login and Password authentication in /etc/ssh/sshd_config
+2. restart sshd
+'''
+
 import paramiko
 import os
 
