@@ -1,0 +1,60 @@
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:glance
+Resolving charm: cs:bionic/heat
+Resolving charm: cs:keystone
+Resolving charm: cs:percona-cluster
+Resolving charm: cs:neutron-api
+Resolving charm: cs:nova-cloud-controller
+Resolving charm: cs:nova-compute-317
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard
+Resolving charm: cs:rabbitmq-server
+Resolving charm: cs:ubuntu
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- expose contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- expose contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- expose contrail-openstack
+- upload charm cs:~containers/easyrsa-303 for series bionic
+- deploy application easyrsa on bionic using cs:~containers/easyrsa-303
+  added resource easyrsa
+- upload charm cs:glance-297 for series bionic
+- deploy application glance on bionic using cs:glance-297
+  added resource policyd-override
+- expose glance
+- upload charm cs:heat-276 for series bionic
+- deploy application heat on bionic using cs:heat-276
+  added resource policyd-override
+- expose heat
+- upload charm cs:keystone-316 for series bionic
+- deploy application keystone on bionic using cs:keystone-316
+  added resource policyd-override
+- expose keystone
+- upload charm cs:percona-cluster-290 for series bionic
+- deploy application mysql on bionic using cs:percona-cluster-290
+- upload charm cs:neutron-api-286 for series bionic
+- deploy application neutron-api on bionic using cs:neutron-api-286
+  added resource policyd-override
+- expose neutron-api
+- upload charm cs:nova-cloud-controller-345 for series bionic
+- deploy application nova-cloud-controller on bionic using cs:nova-cloud-controller-345
+  added resource policyd-override
+- expose nova-cloud-controller
+- upload charm cs:nova-compute-317 for series bionic
+- deploy application nova-compute on bionic using cs:nova-compute-317
+- expose nova-compute
+- upload charm cs:ntp-40 for series bionic
