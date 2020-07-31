@@ -3,7 +3,7 @@ import os
 
 nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34")
 mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34")
-hosts = []
+
 commands = [
   "sudo sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/' -e 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config",
   "sudo systemctl restart sshd"
@@ -11,7 +11,6 @@ commands = [
 
 for ip in mgmt_ips:
     os.system(f'ssh-keygen -f "/root/.ssh/known_hosts" -R "{ip}"')
-    hosts.append(f"ubuntu@{ip}")
 
 
 def execute_cmd_on_remote(i):
