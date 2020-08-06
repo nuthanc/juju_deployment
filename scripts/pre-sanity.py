@@ -6,8 +6,8 @@
 import paramiko
 import os
 
-nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34")
-mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34")
+nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34", "nodeg20")
+mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34", "192.168.30.60")
 
 commands = [
   "sudo sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/' -e 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config",
@@ -32,7 +32,6 @@ def execute_cmd_on_remote(i):
   for command in commands:
     print("="*50, command, "="*50)
     stdin, stdout, stderr = client.exec_command(command)
-    # import pdb;pdb.set_trace()
     print(stdout.read().decode())
     err = stderr.read().decode()
     if err:
@@ -48,6 +47,6 @@ def ssh_sed(machine='all'):
 
 
 # By default on all machines if no parameter is specified
-ssh_sed(machine=1) 
+ssh_sed(machine=5) 
 # ssh_sed(machine=3) 
 # ssh_sed(machine=4) 

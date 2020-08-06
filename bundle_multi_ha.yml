@@ -5,7 +5,7 @@ variables:
   data-network:                 &data-network                   "192.168.40.0/24"
   control-network:              &control-network                "192.168.30.0/24"
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.30"
+  image-tag:                    &image-tag                      "2008.39"
   docker-registry-insecure:     &docker-registry-insecure       true
 machines:
   '0':
@@ -97,7 +97,7 @@ services:
       openstack-origin: *openstack-origin
     to: [ "lxd:0" ]
   nova-compute:
-    charm: cs:nova-compute-317
+    charm: cs:nova-compute-318
     num_units: 1
     expose: true
     options:
