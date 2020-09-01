@@ -47,6 +47,6 @@ def ssh_sed(machine='all'):
 
 
 # By default on all machines if no parameter is specified
-ssh_sed(machine=5) 
+ssh_sed(machine='all') 
 # ssh_sed(machine=3) 
 # ssh_sed(machine=4) 

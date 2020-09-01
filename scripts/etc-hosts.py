@@ -7,6 +7,7 @@ import os
 nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34")
 mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34")
 ctrl_ips = ("192.168.40.19", "192.168.40.20", "192.168.40.9", "192.168.40.29", "192.168.40.34")
+# Comment control ips for single interface deployment
 localhosts = []
 hosts = []
 mgmt_dns = []
@@ -25,12 +26,12 @@ def host_mapping():
     if ctrl_ips[i] == "":
       ctrl_dns.append("")
     else:
-      ctrl_dns.append(f"{ctrl_ips[i]} {nodes[i]}.maas {nodes[i]}")
+      ctrl_dns.append(f"{ctrl_ips[i]} if2{nodes[i]}.maas if2{nodes[i]}")
 
   # print(hosts)
   # print(localhosts)
   # print(mgmt_dns)
-  # print(ctrl_dns)
+  print(ctrl_dns)
 
 def mach_specific_sed_cmd():
   for i in range(len(nodes)):
@@ -66,6 +67,8 @@ def ssh_sed(machine='all'):
 host_mapping()
 mach_specific_sed_cmd()
 # By default on all machines if no parameter is specified
-ssh_sed(machine=1) 
-ssh_sed(machine=3) 
-ssh_sed(machine=4) 
+ssh_sed() 
+# # ssh_sed(machine=3) 
+# # ssh_sed(machine=4) 
+# ssh_sed(machine=0) 
+# ssh_sed(machine=2) 
