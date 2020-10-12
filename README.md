@@ -93,7 +93,7 @@ cat ~/.ssh/id_rsa.pub
   * Click on “untagged” and enable DHCP (take action drop down)
   * Define an appropriate subnet range
   * Give the subnet a DNS of 8.8.8.8
-  * Gateway: 192.168.30.18
+  * Gateway: 192.168.30.18(br1 interface of MAAS node)
 * For the 192.168.40.0/24 subnet, give 192.168.40.254 as Gateway
 * For netronome deployment, give compute tag the following options
 ```sh
