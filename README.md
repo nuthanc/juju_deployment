@@ -160,25 +160,28 @@ virsh pool-start default
 
 ### Bootstrap the JUJU controller
 
-juju add-cloud mymaas --local\
-Cloud Types \
-  *maas \
-  manual \
-  openstack \
-  oracle \
-  vsphere \
-API endpoint: \
+```sh
+juju add-cloud mymaas --local
+Cloud Types 
+  *maas 
+  manual 
+  openstack 
+  oracle 
+  vsphere 
+API endpoint: 
 http://10.204.216.194:5240/MAAS
 
-juju add-credential mymaas \
-Enter credential name: creds \
-region: default \
+juju add-credential mymaas 
+Enter credential name: creds 
+region: default 
 aouth: (From ui under maas username) 
 
 juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic
 
+#(Before deploy, ensure that the machines are tagged properly in the MAAS UI(the controller and the computes) and tf-charms is cloned locally)
+# tf-charms repo can be cloned from https://github.com/tungstenfabric/tf-charms
 juju deploy ./bundle_multi.yml
-
+```
 ### Possible failures and how to debug them:
 
 * If you encounter hook error during installation of juju
