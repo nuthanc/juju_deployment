@@ -93,7 +93,7 @@ cat ~/.ssh/id_rsa.pub
   * Click on “untagged” and enable DHCP (take action drop down)
   * Define an appropriate subnet range
   * Give the subnet a DNS of 8.8.8.8
-  * Gateway: 192.168.30.18
+  * Gateway: 192.168.30.18(br1 interface of MAAS node)
 * For the 192.168.40.0/24 subnet, give 192.168.40.254 as Gateway
 * For netronome deployment, give compute tag the following options
 ```sh
@@ -160,25 +160,28 @@ virsh pool-start default
 
 ### Bootstrap the JUJU controller
 
-juju add-cloud mymaas --local\
-Cloud Types \
-  *maas \
-  manual \
-  openstack \
-  oracle \
-  vsphere \
-API endpoint: \
+```sh
+juju add-cloud mymaas --local
+Cloud Types 
+  *maas 
+  manual 
+  openstack 
+  oracle 
+  vsphere 
+API endpoint: 
 http://10.204.216.194:5240/MAAS
 
-juju add-credential mymaas \
-Enter credential name: creds \
-region: default \
+juju add-credential mymaas 
+Enter credential name: creds 
+region: default 
 aouth: (From ui under maas username) 
 
 juju bootstrap --debug --no-gui --bootstrap-constraints tags=juju mymaas myjujucontroller --bootstrap-series=bionic
 
+#(Before deploy, ensure that the machines are tagged properly in the MAAS UI(the controller and the computes) and tf-charms is cloned locally)
+# tf-charms repo can be cloned from https://github.com/tungstenfabric/tf-charms
 juju deploy ./bundle_multi.yml
-
+```
 ### Possible failures and how to debug them:
 
 * If you encounter hook error during installation of juju
