@@ -579,3 +579,103 @@ Deploying
 2 started 192.168.30.29 noden29 bionic default Deployed
 1 started 192.168.30.34 nodei34 bionic default Deployed
 exec.sh: line 1: e: command not found
+ERROR cannot parse URL "./bundle_multi_ha.yaml": series name "." not valid
+Resolving charm: cs:glance
+Resolving charm: cs:bionic/heat
+Resolving charm: cs:keystone
+Resolving charm: cs:percona-cluster
+Resolving charm: cs:neutron-api
+Resolving charm: cs:nova-cloud-controller
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard
+Resolving charm: cs:rabbitmq-server
+Resolving charm: cs:ubuntu
+Executing changes:
+- set application options for contrail-agent
+- set application options for contrail-analytics
+- set application options for contrail-analyticsdb
+- set application options for contrail-controller
+- set application options for contrail-openstack
+- set application options for glance
+- set application options for keystone
+- set application options for neutron-api
+- set application options for nova-cloud-controller
+- set application options for nova-compute
+- set application options for openstack-dashboard
+- add relation ubuntu - ntp
+- add relation heat - ntp
+- add relation heat - mysql
+- add relation heat - rabbitmq-server
+- add relation heat - keystone
+- add relation contrail-openstack - heat
+- add relation keystone - mysql
+- add relation glance - mysql
+- add relation glance - keystone
+- add relation nova-cloud-controller - keystone
+- add relation nova-cloud-controller - glance
+- add relation neutron-api - mysql
+- add relation neutron-api - rabbitmq-server
+- add relation neutron-api - nova-cloud-controller
+- add relation neutron-api - keystone
+- add relation nova-compute - glance
+- add relation nova-compute - nova-cloud-controller
+- add relation openstack-dashboard:identity-service - keystone
+- add relation contrail-keystone-auth - keystone
+- add relation contrail-controller - contrail-keystone-auth
+- add relation contrail-analytics - contrail-analyticsdb
+- add relation contrail-controller - contrail-analytics
+- add relation contrail-controller - contrail-analyticsdb
+- add relation contrail-openstack - nova-compute
+- add relation contrail-openstack - neutron-api
+- add relation contrail-openstack - contrail-controller
+- add relation contrail-agent - contrail-controller
+Deploy of bundle completed.
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying

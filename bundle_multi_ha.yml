@@ -1,3 +1,4 @@
+
 series: bionic
 variables:
   openstack-origin:             &openstack-origin               distro
@@ -40,6 +41,8 @@ services:
     options:
        source: 10.204.217.158
   mysql:
+    bindings:
+      "": mgmt
     charm: cs:percona-cluster
     num_units: 1
     options:
@@ -50,12 +53,16 @@ services:
       min-cluster-size: 1
     to: [ "lxd:0" ]
   rabbitmq-server:
+    bindings:
+      "": mgmt
     charm: cs:rabbitmq-server
     num_units: 1
     options:
       min-cluster-size: 1
     to: [ "lxd:0" ]
   keystone:
+    bindings:
+      "": mgmt
     charm: cs:keystone
     expose: true
     num_units: 1
@@ -66,6 +73,8 @@ services:
       preferred-api-version: 3
     to: [ "lxd:0" ]
   nova-cloud-controller:
+    bindings:
+      "": mgmt
     charm: cs:nova-cloud-controller
     num_units: 1
     expose: true
@@ -74,6 +83,8 @@ services:
       openstack-origin: *openstack-origin
     to: [ "lxd:0" ]
   neutron-api:
+    bindings:
+      "": mgmt
     charm: cs:neutron-api
     expose: true
     num_units: 1
@@ -83,6 +94,8 @@ services:
       openstack-origin: *openstack-origin
     to: [ "4" ]
   glance:
+    bindings:
+      "": mgmt
     charm: cs:glance
     expose: true
     num_units: 1
@@ -90,6 +103,8 @@ services:
       openstack-origin: *openstack-origin
     to: [ "lxd:0" ]
   openstack-dashboard:
+    bindings:
+      "": mgmt
     charm: cs:openstack-dashboard
     expose: true
     num_units: 1
@@ -97,6 +112,8 @@ services:
       openstack-origin: *openstack-origin
     to: [ "lxd:0" ]
   nova-compute:
+    bindings:
+      "": data
     charm: cs:nova-compute-318
     num_units: 1
     expose: true
@@ -104,6 +121,8 @@ services:
       openstack-origin: *openstack-origin
     to: [ "3" ]
   contrail-openstack:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-openstack
     series: bionic
     expose: true
@@ -125,6 +144,8 @@ services:
       vhost-gateway: *vhost-gateway
       physical-interface: "enp175s0np0s0" 
   contrail-analytics:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-analytics
     num_units: 3
     series: bionic
@@ -140,6 +161,8 @@ services:
       - '1'
       - '2'
   contrail-analyticsdb:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-analyticsdb
     num_units: 3
     series: bionic
@@ -159,6 +182,8 @@ services:
       - '1'
       - '2'
   contrail-controller:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-controller
     series: bionic
     expose: true
@@ -180,17 +205,23 @@ services:
       - '1'
       - '2'
   contrail-keystone-auth:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-keystone-auth
     series: bionic
     expose: true
     num_units: 1
     to: [ "lxd:0" ]
   easyrsa:
+    bindings:
+      "": mgmt
     charm: cs:~containers/easyrsa-303
     num_units: 1
     to:
       - '0'
   heat:
+    bindings:
+      "": mgmt
     charm: cs:bionic/heat
     expose: true
     num_units: 1

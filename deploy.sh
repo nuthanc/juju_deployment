@@ -1,0 +1,1 @@
+nohup bash status_with_etc.sh &
