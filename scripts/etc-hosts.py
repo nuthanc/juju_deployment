@@ -31,7 +31,7 @@ def host_mapping():
   # print(hosts)
   # print(localhosts)
   # print(mgmt_dns)
-  print(ctrl_dns)
+  # print(ctrl_dns)
 
 def mach_specific_sed_cmd():
   for i in range(len(nodes)):
@@ -53,7 +53,7 @@ def execute_cmd_on_remote(i):
                           stderr=subprocess.PIPE)
   result = ssh.stdout.readlines()
   err = ssh.stderr.readlines()
-  # print(result)
+  print(result)
   print(err)
 
 def ssh_sed(machine='all'):
@@ -68,7 +68,7 @@ host_mapping()
 mach_specific_sed_cmd()
 # By default on all machines if no parameter is specified
 ssh_sed() 
-# # ssh_sed(machine=3) 
-# # ssh_sed(machine=4) 
+# ssh_sed(machine=3) 
+# ssh_sed(machine=4) 
 # ssh_sed(machine=0) 
 # ssh_sed(machine=2) 
