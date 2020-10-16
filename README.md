@@ -61,8 +61,8 @@ network:
   bridges:
     br1:
       interfaces: [eno2]
-      addresses: [192.168.30.18/24]
-      gateway4: 192.168.30.254
+      addresses: [192.168.7.18/24]
+      gateway4: 192.168.7.254
       nameservers:
         addresses: [10.204.217.158, 8.8.8.8]
       parameters:
@@ -72,8 +72,8 @@ network:
       dhcp6: no
     br2:
       interfaces: [enp94s0f0]
-      addresses: [192.168.40.18/24]
-      gateway4: 192.168.40.254
+      addresses: [192.168.27.18/24]
+      gateway4: 192.168.27.254
       nameservers:
         addresses: [10.204.217.158, 8.8.8.8]
       parameters:
@@ -89,12 +89,12 @@ netplan apply
 
 * Upload to the MAAS webUI under the “admin” tab (top right of MAAS webUI) -> ssh keys \
 cat ~/.ssh/id_rsa.pub
-* The subnet of the bridge created on the MAAS node will reflect in the MAAS webUI under the “subnets” tab. On the newly created subnet of the bridge (192.168.30.0/24); i.e. the management network:
+* The subnet of the bridge created on the MAAS node will reflect in the MAAS webUI under the “subnets” tab. On the newly created subnet of the bridge (192.168.7.0/24); i.e. the management network:
   * Click on “untagged” and enable DHCP (take action drop down)
   * Define an appropriate subnet range
   * Give the subnet a DNS of 8.8.8.8
-  * Gateway: 192.168.30.18(br1 interface of MAAS node)
-* For the 192.168.40.0/24 subnet, give 192.168.40.254 as Gateway
+  * Gateway: 192.168.7.18(br1 interface of MAAS node)
+* For the 192.168.27.0/24 subnet, give 192.168.27.254 as Gateway
 * For netronome deployment, give compute tag the following options
 ```sh
 maas admin tags create name='compute' comment='kernel options' kernel_opts='intel_iommu=on iommu=pt default_hugepagesz=2M hugepagesz=2M hugepages=8192'
@@ -148,15 +148,15 @@ virsh pool-start default
   sudo chown maas:maas ~maas
   sudo chsh -s /bin/bash maas
   sudo -u maas ssh-keygen
-  sudo -u maas -i ssh-copy-id root@192.168.30.18
-  sudo -u maas virsh -c qemu+ssh://root@192.168.30.18/system list --all
+  sudo -u maas -i ssh-copy-id root@192.168.7.18
+  sudo -u maas virsh -c qemu+ssh://root@192.168.7.18/system list --all
   ```
 * Go back to the MAAS UI to add the local machine as a pod:
-  * Select the “Pod” tab, and click “Add Pod” on the top right corner. Provide the requested info: - Name: MAAS Pod - Pod type: Virsh (virtual systems) - Virsh address: qemu+ssh://root@192.168.30.18/system
+  * Select the “Pod” tab, and click “Add Pod” on the top right corner. Provide the requested info: - Name: MAAS Pod - Pod type: Virsh (virtual systems) - Virsh address: qemu+ssh://root@192.168.7.18/system
 * Compose 2 VMs under Pod created in the above step, select default pool and Tag them juju and neutron VM 
 * Add machines in MAAS webUI and tag them appropriately
   * While adding give BMC IP and MAC for Power configuration
-  * Configure the control data interface(192.168.40.0/24) in controller, compute and neutron to auto-assign or static assign ip
+  * Configure the control data interface(192.168.27.0/24) in controller, compute and neutron to auto-assign or static assign ip
 
 ### Bootstrap the JUJU controller
 

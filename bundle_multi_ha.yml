@@ -2,9 +2,9 @@
 series: bionic
 variables:
   openstack-origin:             &openstack-origin               distro
-  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
-  data-network:                 &data-network                   "192.168.40.0/24"
-  control-network:              &control-network                "192.168.30.0/24"
+  vhost-gateway:                &vhost-gateway                  "192.168.27.254"
+  data-network:                 &data-network                   "192.168.27.0/24"
+  control-network:              &control-network                "192.168.7.0/24"
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
   image-tag:                    &image-tag                      "2011.17-ubi"
   docker-registry-insecure:     &docker-registry-insecure       true
