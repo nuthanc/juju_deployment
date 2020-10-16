@@ -10,7 +10,7 @@ provider_config:
 
 instances:
   noden20:
-      ip: 192.168.30.95
+      ip: 192.168.7.95
       provider: bms
       roles:
           analytics: null
@@ -21,7 +21,7 @@ instances:
           openstack: null
           webui: null
   noden19:
-      ip: 192.168.30.96
+      ip: 192.168.7.96
       provider: bms
       roles:
           openstack_compute: null
@@ -35,28 +35,28 @@ global_configuration:
 contrail_configuration:
   API__DEFAULTS__max_request_size: 11124000
   CLOUD_ORCHESTRATOR: openstack
-  CONFIG_API_VIP: 192.168.30.95
+  CONFIG_API_VIP: 192.168.7.95
   CONTAINER_REGISTRY: bng-artifactory.juniper.net/contrail-nightly
   METADATA_PROXY_SECRET: c0ntrail123
   CONTRAIL_VERSION: master.1145
   OPENSTACK_VERSION: queens
-  CONTROLLER_NODES: 192.168.30.95
-  CONTROL_NODES: 192.168.40.14
-  IPFABRIC_SERVICE_IP: 192.168.30.100
+  CONTROLLER_NODES: 192.168.7.95
+  CONTROL_NODES: 192.168.27.14
+  IPFABRIC_SERVICE_IP: 192.168.7.100
   KEYSTONE_AUTH_ADMIN_PASSWORD: c0ntrail123
-  KEYSTONE_AUTH_HOST: 192.168.30.100
+  KEYSTONE_AUTH_HOST: 192.168.7.100
   KEYSTONE_AUTH_URL_VERSION: /v3
-  OPENSTACK_NODES: 192.168.30.95
+  OPENSTACK_NODES: 192.168.7.95
   RABBITMQ_NODE_PORT: 5673
   REGISTRY_PRIVATE_INSECURE: True
-  VROUTER_GATEWAY: 192.168.40.254
+  VROUTER_GATEWAY: 192.168.27.254
   RABBITMQ_NODE_PORT: "5673"
 
 kolla_config:
   kolla_globals:
-    kolla_external_vip_address: 192.168.30.100
-    kolla_internal_vip_address: 192.168.30.100
-    contrail_api_interface_address: 192.168.30.95
+    kolla_external_vip_address: 192.168.7.100
+    kolla_internal_vip_address: 192.168.7.100
+    contrail_api_interface_address: 192.168.7.95
     keepalived_virtual_router_id: 235
     enable_swift: "no"
     enable_ironic: "no"
@@ -67,12 +67,12 @@ kolla_config:
     keystone_admin_password: c0ntrail123
 
 orchestrator_configuration:
-  contrail_api_interface_address: 192.168.30.95
+  contrail_api_interface_address: 192.168.7.95
   enable_haproxy: 'no'
   enable_ironic: 'no'
   enable_swift: 'no'
-  external_vip: 192.168.30.100
-  internal_vip: 192.168.30.100
+  external_vip: 192.168.7.100
+  internal_vip: 192.168.7.100
   keystone:
       password: c0ntrail123
       version: v3
@@ -85,7 +85,7 @@ orchestrator_configuration:
 
 test_configuration:
   cfgm0_host_pwd: c0ntrail123
-  cfgm0_host_string: ubuntu@192.168.30.95
+  cfgm0_host_string: ubuntu@192.168.7.95
   image_web_server: 10.204.217.158
   use_project_scoped_token: True
   public_host: 10.84.5.120

@@ -1,9 +1,9 @@
 series: bionic
 variables:
   openstack-origin:             &openstack-origin               distro
-  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
+  vhost-gateway:                &vhost-gateway                  "192.168.27.254"
   data-network:                 &data-network                   "enp94s0f0"
-  # control-network:              &control-network                "192.168.40.0/24"
+  # control-network:              &control-network                "192.168.27.0/24"
   virtioforwarder-coremask:     &virtioforwarder-coremask       "1,2"
   dockerhub-registry:           &dockerhub-registry             "https://index.docker.io/v1/"
   agilio-registry:              &agilio-registry                "netronomesystems"
