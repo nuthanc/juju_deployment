@@ -92,7 +92,7 @@ services:
     options:
       manage-neutron-plugin-legacy-mode: false
       openstack-origin: *openstack-origin
-    to: [ "4" ]
+    to: [ "lxd:0" ]
   glance:
     bindings:
       "": mgmt

@@ -1,1 +1,1 @@
-nohup bash status_with_etc.sh &
+nohup bash all_in_one.sh &
