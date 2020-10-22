@@ -6,7 +6,7 @@ variables:
   data-network:                 &data-network                   "192.168.27.0/24"
   control-network:              &control-network                "192.168.7.0/24"
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2011.17-ubi"
+  image-tag:                    &image-tag                      "2011.31"
   docker-registry-insecure:     &docker-registry-insecure       true
 machines:
   '0':
@@ -21,9 +21,9 @@ machines:
   '3':
     constraints: tags=compute-o7k
     series: bionic
-  '4':
-    constraints: tags=neutron
-    series: bionic
+  # '4':
+  #   constraints: tags=neutron
+  #   series: bionic
 
 services:
   ubuntu:
@@ -34,7 +34,7 @@ services:
       - '1'
       - '2'
       - '3'
-      - '4'
+      # - '4'
   ntp:
     charm: cs:ntp
     num_units: 0
@@ -141,8 +141,8 @@ services:
       docker-registry: *docker-registry
       image-tag: *image-tag
       docker-registry-insecure: *docker-registry-insecure
-      vhost-gateway: *vhost-gateway
-      physical-interface: "enp175s0np0s0" 
+      # vhost-gateway: *vhost-gateway
+      # physical-interface: "enp2s0f0" 
   contrail-analytics:
     bindings:
       "": mgmt

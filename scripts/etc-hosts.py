@@ -5,8 +5,8 @@ import os
 #MSG: I think only on the controller is sufficient
 
 nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34")
-mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34")
-ctrl_ips = ("192.168.40.19", "192.168.40.20", "192.168.40.9", "192.168.40.29", "192.168.40.34")
+mgmt_ips = ("192.168.7.19", "192.168.7.20", "192.168.7.9", "192.168.7.29", "192.168.7.34")
+ctrl_ips = ("192.168.27.19", "192.168.27.20", "192.168.27.9", "192.168.27.29", "192.168.27.34")
 # Comment control ips for single interface deployment
 localhosts = []
 hosts = []
