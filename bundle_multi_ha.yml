@@ -4,10 +4,10 @@ variables:
   openstack-origin:             &openstack-origin               distro
   # vhost-gateway:                &vhost-gateway                  "192.168.27.254"
   vhost-gateway:                &vhost-gateway                  "192.168.27.254"
-  # data-network:                 &data-network                   "192.168.27.0/24"
+  data-network:                 &data-network                   "192.168.27.0/24"
   control-network:              &control-network                "192.168.7.0/24"
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2011.31"
+  image-tag:                    &image-tag                      "2011.42"
   docker-registry-insecure:     &docker-registry-insecure       true
 machines:
   '0':
@@ -201,7 +201,7 @@ services:
       image-tag: *image-tag
       docker-registry-insecure: *docker-registry-insecure
       control-network: *control-network
-      # data-network: *data-network
+      data-network: *data-network
       auth-mode: no-auth
     to: 
       - '0'

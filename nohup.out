@@ -8338,3 +8338,463 @@ Executing changes:
 - add unit openstack-dashboard/0 to 0/lxd/7
 - add unit rabbitmq-server/0 to 0/lxd/8
 Deploy of bundle completed.
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:glance
+Resolving charm: cs:bionic/heat
+Resolving charm: cs:keystone
+Resolving charm: cs:percona-cluster
+Resolving charm: cs:neutron-api
+Resolving charm: cs:nova-cloud-controller
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard
+Resolving charm: cs:rabbitmq-server
+Resolving charm: cs:ubuntu
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- expose contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- expose contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- expose contrail-openstack
+- upload charm cs:~containers/easyrsa-303 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/easyrsa-303": cannot retrieve charm "cs:~containers/easyrsa-303": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/easyrsa-303/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:47263->127.0.0.53:53: i/o timeout
+Destroying model
+Waiting for model to be removed, 2 error(s), 14 machine(s), 18 application(s)...
+.
+Waiting for model to be removed, 2 error(s), 14 machine(s), 17 application(s)...
+....
+Waiting for model to be removed, 2 error(s), 14 machine(s), 16 application(s)...
+..........................
+Waiting for model to be removed, 1 error(s), 14 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 13 machine(s), 16 application(s)...
+.
+Waiting for model to be removed, 1 error(s), 12 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 10 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 9 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 8 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 7 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 5 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 error(s), 3 machine(s), 16 application(s)...
+Waiting for model to be removed, 2 machine(s), 16 application(s)...
+Waiting for model to be removed, 1 machine(s), 16 application(s)...
+Waiting for model to be removed, 16 application(s)...
+Waiting for model to be removed, 15 application(s)...
+Waiting for model to be removed, 14 application(s)...
+Waiting for model to be removed, 13 application(s)...
+Waiting for model to be removed, 12 application(s)...
+Waiting for model to be removed, 11 application(s)...
+Waiting for model to be removed, 9 application(s)...
+Waiting for model to be removed, 8 application(s)...
+Waiting for model to be removed, 6 application(s)...ERROR health ping timed out after 30s
+ERROR health ping timed out after 30s
+Unable to get the model status from the API: codec.ReadHeader error: error receiving message: read tcp 192.168.7.18:44028->192.168.7.30:17070: read: connection reset by peer.
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deploying: Configuring OS
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deploying: Configuring OS
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deploying: Configuring OS
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deploying: Configuring OS
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deploying: Configuring OS
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deploying: Configuring OS
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 pending 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+Deploying
+0 started 192.168.27.20 noden20 bionic default Deployed
+2 started 192.168.27.29 noden29 bionic default Deployed
+1 started 192.168.27.34 nodei34 bionic default Deployed
+3 started 192.168.27.9 nodec9 bionic default Deployed
+
+exec.sh: line 1:  5859 Killed                  bash scripts/status.sh
