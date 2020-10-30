@@ -26,7 +26,7 @@ def host_mapping():
     if ctrl_ips[i] == "":
       ctrl_dns.append("")
     else:
-      ctrl_dns.append(f"{ctrl_ips[i]} if2{nodes[i]}.maas if2{nodes[i]}")
+      ctrl_dns.append(f"{ctrl_ips[i]} {nodes[i]}.maas {nodes[i]}")
 
   # print(hosts)
   # print(localhosts)
