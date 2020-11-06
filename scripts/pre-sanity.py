@@ -7,7 +7,7 @@ import paramiko
 import os
 
 nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34", "nodeg20")
-mgmt_ips = ("192.168.30.19", "192.168.30.20", "192.168.30.9", "192.168.30.29", "192.168.30.34", "192.168.30.60")
+mgmt_ips = ("192.168.7.19", "192.168.7.20", "192.168.7.9", "192.168.7.29", "192.168.7.34", "192.168.7.60")
 
 commands = [
   "sudo sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/' -e 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config",
