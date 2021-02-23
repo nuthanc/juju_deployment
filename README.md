@@ -200,10 +200,26 @@ juju deploy ./bundle_multi.yml
   * Replace localhost with Juju jumphost ip in /etc/maas/rackd.conf
   * Note: Juju jumphost is node on which MAAS and juju are installed
 * Hash Mismatch Issue
-```
+```sh
+squid -k shutdown
+rm -rf /var/spool/maas-proxy/*
+service squid restart
+# If the above doesn't work, do the below commands
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt-get update -o Acquire::CompressionTypes::Order::=gz
 sudo apt-get update && sudo apt-get upgrade
+```
+* Juju API error during juju deploy
+```
+Check resolv.conf of n18(juju server) and juju-controller(ping google.com and check if it works)
+If the above doesn't work, get resolv.conf from local terminal
+Check iptables -S
+It should look like this based on your bridge br1 to eno1 forwarding
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-A FORWARD -i eno1 -o br1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -i br1 -o eno1 -j ACCEPT
 ```
 * Cannot edit physical interface in gui 
   * Workaround mentioned in this link: https://bugs.launchpad.net/maas/+bug/1864241
